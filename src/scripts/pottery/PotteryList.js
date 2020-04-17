@@ -1,13 +1,13 @@
-import { potteryToSell } from './SellingConditionCheck.js'
 import { Pot } from './PotHTML.js'
+import { usePottery } from './potteryDataProvider.js'
 
 const eventHub = document.querySelector('#container')
 const contentTarget = document.querySelector('#inventory')
 
 export const PotteryList = () => {
-  return (contentTarget.innerHTML = potteryToSell
-    .map((pot) => Pot(pot))
-    .join(''))
+  const pottery = usePottery()
+  const filteredPottery = pottery.filter((pot) => pot.cracked === false)
+  contentTarget.innerHTML = filteredPottery.map((pot) => Pot(pot)).join('')
 }
 
 eventHub.addEventListener('sellButtonClicked', (event) => {

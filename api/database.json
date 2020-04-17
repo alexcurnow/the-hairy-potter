@@ -1,0 +1,49 @@
+{
+  "pottery": [
+    {
+      "id": 1,
+      "shape": "Oval",
+      "weight": 2,
+      "height": 4,
+      "fired": true,
+      "cracked": true,
+      "price": 20
+    },
+    {
+      "id": 2,
+      "shape": "Pear",
+      "weight": 3,
+      "height": 6,
+      "fired": true,
+      "cracked": false,
+      "price": 20
+    },
+    {
+      "id": 3,
+      "shape": "Vase",
+      "weight": 4,
+      "height": 8,
+      "fired": true,
+      "cracked": false,
+      "price": 40
+    },
+    {
+      "id": 4,
+      "shape": "Pitcher",
+      "weight": 5,
+      "height": 9,
+      "fired": true,
+      "cracked": false,
+      "price": 40
+    },
+    {
+      "id": 5,
+      "shape": "Square",
+      "weight": 1,
+      "height": 3,
+      "fired": true,
+      "cracked": true,
+      "price": 20
+    }
+  ]
+}
