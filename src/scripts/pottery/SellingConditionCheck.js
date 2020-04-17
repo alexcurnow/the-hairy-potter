@@ -9,5 +9,3 @@ export const SellingCondition = (potteryObj) => {
   }
   return potteryObj
 }
-
-console.log(potteryToSell)
