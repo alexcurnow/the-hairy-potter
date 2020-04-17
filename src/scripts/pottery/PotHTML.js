@@ -1,4 +1,4 @@
-import { potteryToSell } from './SellingConditionCheck.js'
+import { usePottery } from './potteryDataProvider.js'
 
 const eventHub = document.querySelector('#container')
 
@@ -18,17 +18,19 @@ export const Pot = (potteryObj) => {
 
 eventHub.addEventListener('click', (event) => {
   if (event.target.id.startsWith('sell--')) {
+    const pottery = usePottery()
+    const filteredPottery = pottery.filter((pot) => pot.cracked === false)
     let shape = ''
     let price = ''
-    if (event.target.id === 'sell--' + potteryToSell[0].id) {
-      shape = potteryToSell[0].shape
-      price = potteryToSell[0].price
-    } else if (event.target.id === 'sell--' + potteryToSell[1].id) {
-      shape = potteryToSell[1].shape
-      price = potteryToSell[1].price
-    } else if (event.target.id === 'sell--' + potteryToSell[2].id) {
-      shape = potteryToSell[2].shape
-      price = potteryToSell[2].price
+    if (event.target.id === 'sell--' + filteredPottery[0].id) {
+      shape = filteredPottery[0].shape
+      price = filteredPottery[0].price
+    } else if (event.target.id === 'sell--' + filteredPottery[1].id) {
+      shape = filteredPottery[1].shape
+      price = filteredPottery[1].price
+    } else if (event.target.id === 'sell--' + filteredPottery[2].id) {
+      shape = filteredPottery[2].shape
+      price = filteredPottery[2].price
     }
 
     const sellButtonClickEvent = new CustomEvent('sellButtonClicked', {
@@ -40,8 +42,3 @@ eventHub.addEventListener('click', (event) => {
     eventHub.dispatchEvent(sellButtonClickEvent)
   }
 })
-
-// const allSellButtons = document.querySelectorAll("button[id^='sell--']")
-// console.log(allSellButtons)
-// allSellButtons.forEach((btn) => {
-//   btn
